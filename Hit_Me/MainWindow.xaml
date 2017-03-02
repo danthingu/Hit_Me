@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <Border BorderBrush="SteelBlue" BorderThickness="1" Margin="5">
+        <Border Grid.Column="1" BorderBrush="SteelBlue" BorderThickness="1" Margin="5">
             <Grid>
                 <Canvas x:Name="canvasBackground" SizeChanged="canvasBackground_SizeChanged" MinWidth="50">
                     <Canvas.Background>
@@ -26,11 +26,11 @@
             </Grid>
         </Border>
 
-        <Border Grid.Column="1" BorderBrush="SteelBlue" BorderThickness="1" Margin="5">
+        <Border Grid.Column="0" BorderBrush="SteelBlue" BorderThickness="1" Margin="5">
             <Border.Background>
                 <RadialGradientBrush GradientOrigin="1,0.7" Center="1,0.7" RadiusX="1" RadiusY="1">
-                    <GradientStop Color="Orange"  Offset="0"></GradientStop>
-                    <GradientStop Color="White" Offset="1"></GradientStop>
+                    <GradientStop Color="Yellow"  Offset="0"></GradientStop>
+                    <GradientStop Color="Green" Offset="1"></GradientStop>
                 </RadialGradientBrush>
             </Border.Background>
             <StackPanel Margin="15" VerticalAlignment="Center" HorizontalAlignment="Center">
