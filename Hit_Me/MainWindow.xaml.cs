@@ -94,24 +94,24 @@ namespace Hit_Me
                 bombTimer.Interval = TimeSpan.FromSeconds(secondsBetweenBombs);
 
                 // Update the status message.
-                lblRate.Text = String.Format("A bomb is released every {0} seconds.",
+                lblRate.Text = String.Format("A block is released at each {0} seconds.",
                     secondsBetweenBombs);
-                lblSpeed.Text = String.Format("Each bomb takes {0} seconds to fall.",
+                lblSpeed.Text = String.Format("Each block takes {0} seconds to fall.",
                     secondsToFall);
             }
 
             // Create the bomb.
-            Block bomb = new Block();
-            bomb.IsFalling = true;
+            Block blocks = new Block();
+            blocks.IsFalling = true;
 
             // Position the bomb.            
             Random random = new Random();
-            bomb.SetValue(Canvas.LeftProperty,
+            blocks.SetValue(Canvas.LeftProperty,
                 (double)(random.Next(0, (int)(canvasBackground.ActualWidth - 50))));
-            bomb.SetValue(Canvas.TopProperty, -100.0);
+            blocks.SetValue(Canvas.TopProperty, -100.0);
 
             // Attach mouse click event (for defusing the bomb).
-            bomb.MouseLeftButtonDown += bomb_MouseLeftButtonDown;
+            blocks.MouseLeftButtonDown += bomb_MouseLeftButtonDown;
 
             // Create the animation for the falling bomb.
             Storyboard storyboard = new Storyboard();
@@ -119,7 +119,7 @@ namespace Hit_Me
             fallAnimation.To = canvasBackground.ActualHeight;
             fallAnimation.Duration = TimeSpan.FromSeconds(secondsToFall);
 
-            Storyboard.SetTarget(fallAnimation, bomb);
+            Storyboard.SetTarget(fallAnimation, blocks);
             Storyboard.SetTargetProperty(fallAnimation, new PropertyPath("(Canvas.Top)"));
             storyboard.Children.Add(fallAnimation);
 
@@ -135,10 +135,10 @@ namespace Hit_Me
             //storyboard.Children.Add(wiggleAnimation);
 
             // Add the bomb to the Canvas.
-            canvasBackground.Children.Add(bomb);
+            canvasBackground.Children.Add(blocks);
 
             // Add the storyboard to the tracking collection.            
-            storyboards.Add(bomb, storyboard);
+            storyboards.Add(blocks, storyboard);
 
             // Configure and start the storyboard.
             storyboard.Duration = fallAnimation.Duration;
