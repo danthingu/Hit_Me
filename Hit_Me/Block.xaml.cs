@@ -18,11 +18,13 @@ namespace Hit_Me
     /// <summary>
     /// Interaction logic for Hit_Me.xaml
     /// </summary>
-    public partial class Hit_Me : UserControl
+    public partial class Block : UserControl
     {
-        public Hit_Me()
+        public Block()
         {
             InitializeComponent();
         }
+        
+        public bool IsFalling { get; set; }
     }
 }
